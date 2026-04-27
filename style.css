@@ -1,0 +1,363 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#121212;
+    --card:#1e1e1e;
+    --text:#ffffff;
+    --secondary:#bdbdbd;
+    --orange: #ff8800;
+    --orange-hover: #ff8800;
+    --border:#2a2a2a;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background-color:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    padding:20px;
+}
+
+
+header{
+    margin-bottom:30px;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background-color:var(--card);
+    padding:15px 20px;
+    border-radius:12px;
+}
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+h1{
+    font-size:28px;
+}
+
+.github-logo{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+
+#favorites-btn{
+    padding:10px 16px;
+    border:none;
+    border-radius:8px;
+    background-color:var(--orange);
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+#favorites-btn:hover{
+    background-color:var(--orange-hover);
+}
+
+main{
+    max-width:900px;
+    margin:auto;
+}
+
+
+#search-section{
+    background-color:var(--card);
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+label{
+    font-weight:bold;
+}
+
+#username{
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background-color:#2b2b2b;
+    color:white;
+    outline:none;
+}
+
+#username:focus{
+    border:1px solid var(--orange);
+}
+
+#search-btn{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background-color:var(--orange);
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+#search-btn:hover{
+    background-color:var(--orange-hover);
+}
+
+
+#section-bienvenue,
+#section-chargement,
+#section-error,
+#section-profil,
+#section-favorites{
+    background-color:var(--card);
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.hidden{
+    display:none;
+}
+
+#section-bienvenue{
+    position:relative;
+    background:linear-gradient(145deg, #1e1e1e, #151515);
+    border:1px solid var(--border);
+    padding:50px 30px;
+    border-radius:18px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    overflow:hidden;
+}
+
+#section-bienvenue::before{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:var(--orange);
+    filter:blur(120px);
+    opacity:0.2;
+    top:-50px;
+    right:-50px;
+}
+
+
+#section-bienvenue img{
+    width:130px;
+    height:130px;
+    object-fit:cover;
+    border-radius:50%;
+
+    border:3px solid var(--orange);
+    padding:4px;
+    background-color:#111;
+
+    transition:0.3s ease;
+}
+
+#section-bienvenue img:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px rgba(204,85,0,0.5);
+}
+
+
+#section-bienvenue h2{
+    font-size:30px;
+    font-weight:bold;
+    color:var(--text);
+    letter-spacing:1px;
+}
+
+#section-bienvenue p{
+    font-size:15px;
+    color:var(--secondary);
+    max-width:320px;
+    line-height:1.5;
+}
+
+#section-bienvenue p::after{
+    content:"";
+    display:block;
+    width:60px;
+    height:3px;
+    background:var(--orange);
+    margin:12px auto 0;
+    border-radius:5px;
+}
+
+#section-error{
+    background-color:#7f1d1d;
+    color:white;
+}
+
+.profile-card {
+    background: #1a1a1a;
+    border: 1px solid #ff8800;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgba(255, 136, 0, 0.2);
+}
+
+.profile-left {
+    display: flex;
+    gap: 20px;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #ff8800;
+}
+
+.profile-info h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+    color: #ff8800;
+}
+
+.username {
+    color: #bbbbbb;
+    margin-bottom: 15px;
+}
+
+.bio {
+    margin-bottom: 20px;
+    color: #dddddd;
+}
+
+
+.stats {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 20px;
+}
+
+.stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats span {
+    font-size: 14px;
+    color: #999;
+}
+
+.stats strong {
+    font-size: 26px;
+    color: #ff8800;
+}
+
+
+.github-link {
+    color: #ff8800;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+}
+
+.bookmark-btn {
+    background: #ff8800;
+    color: black;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.bookmark-btn:hover {
+    background: #ffaa33;
+}
+
+
+.repos-section h2 {
+    margin-bottom: 20px;
+    color: #ff8800;
+}
+
+.repo-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-left: 5px solid #ff8800;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.repo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px rgba(255, 136, 0, 0.2);
+}
+
+.repo-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.repo-card h3 {
+    font-size: 20px;
+    color: white;
+}
+
+.repo-card p {
+    margin-bottom: 10px;
+    color: #cccccc;
+}
+
+.repo-card small {
+    color: #ff8800;
+}
+
+
+#liste-favorites{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-top:15px;
+}
+
+.favorite-card{
+    background-color:#2b2b2b;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+}
+
+@media(max-width:600px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    h1{
+        font-size:22px;
+    }
+}
