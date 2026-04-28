@@ -11,10 +11,10 @@
     <nav>
  <div class="nav-left">
  <a href="https://github.com" target="_blank">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="github-logo"></a>
+<img src="imagesbreif5/icone-github-orange.png" alt="GitHub Logo" class="github-logo"></a>
   <h1>GitHub Finder</h1>
 </div>
-<button id="favorites-btn">Favoris(<span id="favorites-count">0</span>)</button>
+<button id="favorites-btn">Favorites(<span id="favorites-count">0</span>)</button>
     </nav>
 </header>
     <main>
@@ -34,75 +34,36 @@
 <section id="section-error" class="hidden">
 <p id="error-message"></p>
 </section>
-  <section class="profile-card">
+<section class="profile-card hidden" id="profile">
     <div class="profile-left">
-    <img src="imagesbreif5/avatar.png" alt="avatar" class="avatar">
+        <img id="avatar" src="imagesbreif5/avatar.png" alt="avatar" class="avatar">
 
-     <div class="profile-info">
-         <h1>BTISSAMQABILI</h1>
-          <p class="username">@btissamqabili</p>
-           <p class="bio">No bio available</p>
-          <div class="stats">
-             <div>
+<div class="profile-info">
+  <h1 id="name">BTISSAMQABILI</h1>
+    <p id="login" class="username">@btissamqabili</p>
+    <p id="bio" class="bio">No bio available</p>
+     <div class="stats">
+        <div>
          <span>Followers</span>
-        <strong>0</strong> </div>
-   <div>
-   <span>Following</span>
-   <strong>0</strong>
-    </div>
-    <div>
-    <span>Public Repos</span>
-     <strong>7</strong>
-     </div>
-     </div>
-    <a href="#" class="github-link">Visit GitHub Profile →</a>
-      </div>
-        </div>
-       <button class="bookmark-btn">☆ Bookmark</button>
-        </section>
-        <section class="repos-section">
-            <h2>Top Repositories</h2>
-            <div class="repo-card">
-       <div class="repo-top">
-        <h3>project5</h3>
-   <span>⭐ 0</span>
-   </div>
-     <p>No description</p>
-      <small>📄 HTML &nbsp;&nbsp; 🍴 0</small>
-     </div>
-      <div class="repo-card">
-       <div class="repo-top">
-        <h3>project4</h3>
-        <span>⭐ 0</span>
-     </div>
-     <p>No description</p>
-      <small>📄 CSS &nbsp;&nbsp; 🍴 0</small>
-     </div>
-    <div class="repo-card">
-       <div class="repo-top">
-         <h3>live-coding</h3>
-          <span>⭐ 0</span>
-        </div>
-      <p>No description</p>
-         <small>🍴 0</small>
-      </div>
-      <div class="repo-card">
-       <div class="repo-top">
-       <h3>cinevia-projet</h3>
-          <span>⭐ 0</span>
-        </div>
-        <p>No description</p>
-       <small>📄 JavaScript &nbsp;&nbsp; 🍴 0</small>
-      </div>
-      <div class="repo-card">
-     <div class="repo-top">
-      <h3>projet2</h3>
-        <span>⭐ 0</span>
+        <strong id="followers">0</strong>
        </div>
-        <p>No description</p>
-          <small>📄 CSS &nbsp;&nbsp; 🍴 0</small>
-        </div>
-        </section>
+        <div>
+         <span>Following</span>
+        <strong id="following">0</strong>
+          </div>
+       <div>
+      <span>Public Repos</span>
+      <strong id="repos">7</strong>
+    </div>
+    </div>
+    <a id="github-link" href="#" class="github-link"> Visit GitHub Profile →</a>
+    </div>
+    </div>
+    <button class="bookmark-btn">☆ favorite</button>
+</section>
+ <section class="repos-section " id="repositories">
+<h2>Top Repositories</h2>
+</section>
 <section id="section-favorites" class="hidden">
 <h2>Mes Favoris</h2>
 <div id="liste-favorites"></div>
