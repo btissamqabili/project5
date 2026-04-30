@@ -73,7 +73,6 @@ function displayUserProfile(user) {
     document.getElementById("following").textContent = user.following;
     document.getElementById("repos").textContent = user.public_repos;
     document.getElementById("github-link").href = user.html_url;
-
     profile.classList.remove("hidden");
 
     renderBookmarkButton(user);
@@ -86,9 +85,9 @@ function displayRepositories(repos) {
         div.className = "repo-card";
 
         div.innerHTML = `
-            <h3>${repo.name}</h3>
-            <p>${repo.description || "pas de description"}</p>
-            <small>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</small>
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "pas de description"}</p>
+        <small>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</small>
         `;
         repositories.appendChild(div);
     });
@@ -189,7 +188,6 @@ function renderFavorites() {
     hideAll();
     favoritesSection.classList.remove("hidden");
 }
-
 searchBtn.addEventListener("click", handleSearch);
 
 searchInput.addEventListener("keydown", (e) => {
