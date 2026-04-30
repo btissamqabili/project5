@@ -7,68 +7,90 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <header>
+
+<header>
     <nav>
- <div class="nav-left">
- <a href="https://github.com" target="_blank">
-<img src="imagesbreif5/icone-github-orange.png" alt="GitHub Logo" class="github-logo"></a>
-  <h1>GitHub Finder</h1>
-</div>
-<button id="favorites-btn">Favorites(<span id="favorites-count">0</span>)</button>
+        <div class="nav-left">
+            <a href="https://github.com" target="_blank">
+                <img src="imagesbreif5/icone-github-orange.png" alt="GitHub Logo" class="github-logo">
+            </a>
+            <h1>GitHub Finder</h1>
+        </div>
+
+        <button id="favorites-btn">
+            Favorites (<span id="favorites-count">0</span>)
+        </button>
     </nav>
 </header>
-    <main>
-<section id="search-section">
-    <label for="username">Nom d'utilisateur GitHub</label>
-    <input type="text" id="username" placeholder="Entrez le nom d'utilisateur GitHub">
-    <button id="search-btn">rechercher</button>
-</section>
-<section id="section-bienvenue">
-    <img src="imagesbreif5/image-rech.jpg" alt="recherche">
-    <h2>Bienvenue</h2>
-    <p>Recherchez un développeur GitHub</p>
-</section>
-<section id="section-chargement" class="hidden">
-    <p>Chargement...</p>
-</section>
-<section id="section-error" class="hidden">
-<p id="error-message"></p>
-</section>
-<section class="profile-card hidden" id="profile">
-    <div class="profile-left">
-        <img id="avatar" src="imagesbreif5/avatar.png" alt="avatar" class="avatar">
 
-<div class="profile-info">
-  <h1 id="name">BTISSAMQABILI</h1>
-    <p id="login" class="username">@btissamqabili</p>
-    <p id="bio" class="bio">No bio available</p>
-     <div class="stats">
-        <div>
-         <span>Followers</span>
-        <strong id="followers">0</strong>
-       </div>
-        <div>
-         <span>Following</span>
-        <strong id="following">0</strong>
-          </div>
-       <div>
-      <span>Public Repos</span>
-      <strong id="repos">7</strong>
-    </div>
-    </div>
-    <a id="github-link" href="#" class="github-link"> Visit GitHub Profile →</a>
-    </div>
-    </div>
-    <button class="bookmark-btn">☆ favorite</button>
-</section>
- <section class="repos-section " id="repositories">
-<h2>Top Repositories</h2>
-</section>
-<section id="section-favorites" class="hidden">
-<h2>Mes Favoris</h2>
-<div id="liste-favorites"></div>
-</section>
+<main>
+
+    <section id="search-section">
+        <label for="username">Nom d'utilisateur GitHub</label>
+        <input type="text" id="username" placeholder="Entrez le nom d'utilisateur GitHub">
+        <button id="search-btn">Rechercher</button>
+    </section>
+
+    <section id="section-bienvenue">
+        <img src="imagesbreif5/image-rech.jpg" alt="recherche">
+        <h2>Bienvenue</h2>
+        <p>Recherchez un développeur GitHub</p>
+    </section>
+
+    <section id="section-chargement" class="hidden">
+        <p>Chargement...</p>
+    </section>
+
+    <section id="section-error" class="hidden">
+        <p id="error-message"></p>
+    </section>
+
+    <section class="profile-card hidden" id="profile">
+        <div class="profile-left">
+            <img id="avatar" src="" alt="avatar" class="avatar">
+
+            <div class="profile-info">
+                <h1 id="name"></h1>
+                <p id="login" class="username"></p>
+                <p id="bio" class="bio"></p>
+
+                <div class="stats">
+                    <div>
+                        <span>Followers</span>
+                        <strong id="followers">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Following</span>
+                        <strong id="following">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Public Repos</span>
+                        <strong id="repos">0</strong>
+                    </div>
+                </div>
+
+                <a id="github-link" href="#" class="github-link" target="_blank">
+                    Visit GitHub Profile →
+                </a>
+            </div>
+        </div>
+
+        <button class="bookmark-btn">☆ Favorite</button>
+    </section>
+
+    <section class="repos-section hidden" id="repositories">
+        <h2>Top Repositories</h2>
+    </section>
+
+    <section id="section-favorites" class="hidden">
+        <h2>Mes Favoris</h2>
+        <div id="liste-favorites"></div>
+    </section>
+
 </main>
+
 <script src="index.js"></script>
 </body>
 </html>

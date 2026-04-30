@@ -38,102 +38,123 @@ const testRepos = [
         html_url: "https://github.com/python/cpython"
     }
 ];
+
+
 const state = {
-    currentUser: null,      
-    bookmarks: [],         
-    isViewingBookmarks: false 
+    currentUser: null,
+    bookmarks: [],
+    isViewingBookmarks: false
 };
-const rechercheinput = document.getElementById('username');
-const rechercheBtn = document.getElementById('search-btn');
-const userProfile = document.getElementById('profile');
-const listerepos = document.getElementById('repositories');
-const bienvenue = document.getElementById('section-bienvenue');
-const loadingState = document.getElementById('section-chargement');
-const errorState = document.getElementById('section-error');
-const bookmarksList = document.getElementById('liste-favorites');
-const favoritcount = document.getElementById('favorites-count');
+
+const searchInput = document.getElementById("username");
+const searchBtn = document.getElementById("search-btn");
+
+const profile = document.getElementById("profile");
+const repositories = document.getElementById("repositories");
+
+const welcomeSection = document.getElementById("section-bienvenue");
+const loadingSection = document.getElementById("section-chargement");
+const errorSection = document.getElementById("section-error");
+
 function hideAll() {
-    bienvenue.classList.add("hidden");
-    loadingState.classList.add("hidden");
-    errorState.classList.add("hidden");
-    userProfile.classList.add("hidden");
-    listerepos.classList.add("hidden");
+    welcomeSection.classList.add("hidden");
+    loadingSection.classList.add("hidden");
+    errorSection.classList.add("hidden");
+    profile.classList.add("hidden");
+    repositories.classList.add("hidden");
 }
+
 function showWelcome() {
     hideAll();
-    bienvenue.classList.remove("hidden");
+    welcomeSection.classList.remove("hidden");
 }
 
 function showLoading() {
     hideAll();
-    loadingState.classList.remove("hidden");
-}fhjg
+    loadingSection.classList.remove("hidden");
+}
+
 function showError(message) {
     hideAll();
-    errorState.classList.remove("hidden");
+    errorSection.classList.remove("hidden");
     document.getElementById("error-message").textContent = message;
 }
+
 function displayUserProfile(user) {
     hideAll();
+
     document.getElementById("avatar").src = user.avatar_url;
-    document.getElementById("name").textContent = user.name || "Nom indisponible";
+    document.getElementById("name").textContent = user.name;
     document.getElementById("login").textContent = "@" + user.login;
-    document.getElementById("bio").textContent = user.bio || "Aucune biographie";
+    document.getElementById("bio").textContent = user.bio;
     document.getElementById("followers").textContent = user.followers;
     document.getElementById("following").textContent = user.following;
     document.getElementById("repos").textContent = user.public_repos;
-    document.getElementById("github-link").href = "https://github.com/" + user.login;
-    userProfile.classList.remove("hidden");
+    document.getElementById("github-link").href =
+        "https://github.com/" + user.login;
+
+    profile.classList.remove("hidden");
+
     displayRepositories(testRepos);
-}cb
-function displayRepositories(repos) {
-    listerepos.innerHTML = "<h2>Top Repositories</h2>";
-    repos.forEach(repo => {
-     const repoCard = document.createElement("div");
-     repoCard.classList.add("repo-card");
-      repoCard.innerHTML = `
-     <div class="repo-top">
-    <h3>${repo.name}</h3>
-    <span>⭐ ${repo.stargazers_count}</span>
-    </div>
-     <p>${repo.description || "No description"}</p>
-     <small>
-      📄 ${repo.language || "Unknown"}
-         &nbsp;&nbsp;
-        🍴 ${repo.forks_count}
-        </small>
-        `;
-        listerepos.appendChild(repoCard);
-    });
-    listerepos.classList.remove("hidden");
 }
+
+function displayRepositories(repos) {
+    repositories.innerHTML = "<h2>Top Repositories</h2>";
+    repos.forEach((repo) => {
+    const repoCard = document.createElement("div");
+    repoCard.classList.add("repo-card");
+    repoCard.innerHTML = `
+    <div class="repo-top">
+         <h3>${repo.name}</h3>
+     <span>⭐ ${repo.stargazers_count}</span>
+    </div>
+    <p>${repo.description}</p>
+    <small>
+    📄 ${repo.language}
+    &nbsp;&nbsp;
+   🍴 ${repo.forks_count}
+            </small>
+        `;
+        repositories.appendChild(repoCard);
+    });
+
+    repositories.classList.remove("hidden");
+}
+
+
 function searchUserLocal(username) {
     showLoading();
-    setTimeout(() => {
-      const user = testUsers.find(
-          u => u.login.toLowerCase() === username.toLowerCase()
-     );
-        if (!user) {
-        showError("Utilisateur non trouvé");
-            return;
-     }
-        state.currentUser = user;
-     displayUserProfile(user);
 
+    setTimeout(() => {
+        const searchValue = username.toLowerCase().trim();
+
+        const user = testUsers.find(
+            (u) =>
+         u.login.toLowerCase() === searchValue ||
+        u.name.toLowerCase() === searchValue
+        );
+
+        if (!user) {
+         showError("Utilisateur non trouvé");
+        return;
+        }
+        state.currentUser = user;
+        displayUserProfile(user);
     }, 1000);
 }
 function handleSearch() {
-    const username = rechercheinput.value.trim();
+    const username = searchInput.value.trim();
     if (!username) {
-        showError("Veuillez entrer un nom d'utilisateur");
-        return;
+    showError("Veuillez entrer un nom d'utilisateur");
+    return;
     }
     searchUserLocal(username);
 }
-rechercheBtn.addEventListener('click', handleSearch);
-rechercheinput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') handleSearch();
+searchBtn.addEventListener("click", handleSearch);
+
+searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        handleSearch();
+    }
 });
-document.addEventListener("DOMContentLoaded", () => {
-    showWelcome();
-});
+document.addEventListener("DOMContentLoaded", showWelcome);
